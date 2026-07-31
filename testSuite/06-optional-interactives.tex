@@ -9,13 +9,6 @@ remain local rather than blocking page readiness.
 
 \section{Optional Interactives}
 
-\subsection{Contained Inline JavaScript Failure}
-
-Malformed inline JavaScript:
-\js{
-  window.runtimeInlineMissingFunction()
-}.
-
 \begin{javascript}
 function installRuntimeOptionalInteractive() {
   var host = document.getElementById("runtime-optional-interactive");
