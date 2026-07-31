@@ -1,0 +1,43 @@
+\documentclass{ximera}
+\title{Runtime Test 04: Sage Generation and Show Me Another}
+\begin{document}
+\begin{abstract}
+Tests seeded Sage generation, deterministic reload behavior, generation
+changes, and the Show Me Another lifecycle.
+\end{abstract}
+\maketitle
+
+\section{Sage Generating Another}
+
+
+\begin{sagesilent}
+x = var('x')
+a = ZZ.random_element(2,10)
+b = ZZ.random_element(2,10)
+product_value = a*b
+expanded_value = expand((x+a)*(x+b))
+\end{sagesilent}
+
+\begin{problem}
+For this generated version,
+\[
+a=\sage{a},\qquad b=\sage{b}.
+\]
+Compute the product.
+\[
+ab=\answer[id=sageGeneratedProduct]{\sage{product_value}}
+\]
+\end{problem}
+
+\begin{problem}
+Expand:
+\[
+(x+\sage{a})(x+\sage{b})
+=
+\answer[id=sageGeneratedExpansion]{\sage{expanded_value}}
+\]
+\end{problem}
+
+Manual checks: normal reload preserves the generation; Show Me Another creates
+a new one; stale callbacks do not replace newer output.
+\end{document}

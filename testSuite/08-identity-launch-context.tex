@@ -1,0 +1,75 @@
+\documentclass{ximera}
+\title{Runtime Test 08: Identity and Launch Context}
+\begin{document}
+\begin{abstract}
+Tests launch-context observation while ensuring identity-display failure does
+not block ordinary mathematical content.
+\end{abstract}
+\maketitle
+
+\section{Identity Launch Context}
+
+
+\begin{javascript}
+function runtimeLaunchValue(name) {
+  var activity = document.querySelector("main.activity");
+  if (!activity)
+    return "missing-activity";
+
+  var value = activity.getAttribute(name);
+  return value===null ? "missing" : value;
+}
+
+function runtimeIdentityLabel() {
+  var candidates = [
+    document.querySelector("[data-user-id]"),
+    document.querySelector(".user-name"),
+    document.querySelector("#user-name")
+  ];
+
+  for (var i=0;i<candidates.length;i++) {
+    var element = candidates[i];
+    if (!element)
+      continue;
+
+    var value =
+      element.getAttribute("data-user-id") ||
+      element.textContent;
+
+    if (value && value.trim())
+      return value.trim();
+  }
+
+  return "identity-not-visible";
+}
+\end{javascript}
+
+Activity path:
+\[
+\js{runtimeLaunchValue("data-path")}
+\]
+
+Activity hash:
+\[
+\js{runtimeLaunchValue("data-hash")}
+\]
+
+Visible identity label:
+\[
+\js{runtimeIdentityLabel()}
+\]
+
+This must render even if the current-user request fails:
+\[
+\int_0^\pi\sin(x)\,dx=2.
+\]
+
+\begin{problem}
+\[
+9-4=\answer[id=identityIndependentAnswer]{5}
+\]
+\end{problem}
+
+Test through direct, guest, Canvas student, instructor, Test Student, and forced
+identity-request-failure contexts.
+\end{document}

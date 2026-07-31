@@ -1,0 +1,69 @@
+\documentclass{ximera}
+\title{Runtime Test 02: Answers, Validators, and Saved Progress}
+\begin{document}
+\begin{abstract}
+Tests logical answer discovery, saved-state restoration, multiple answer types,
+grouped validation, and completed-answer rendering.
+\end{abstract}
+\maketitle
+
+\section{Answers and Saved Progress}
+
+
+\begin{javascript}
+function xronosPairValidator(a,b) {
+  return a+b==10;
+}
+\end{javascript}
+
+\begin{problem}
+Enter \(5\).
+\[
+\answer[id=runtimeInteger]{5}
+\]
+\end{problem}
+
+\begin{problem}
+Enter \(2-x\).
+\[
+\answer[id=runtimeExpression]{2-x}
+\]
+\end{problem}
+
+\begin{problem}
+Choose the correct statement.
+\begin{multipleChoice}
+\choice{Every prime number is odd.}
+\choice[correct]{The number \(2\) is prime.}
+\choice{The number \(1\) is prime.}
+\end{multipleChoice}
+\end{problem}
+
+\begin{problem}
+Select every true statement.
+\begin{selectAll}
+\choice[correct]{\(2+2=4\)}
+\choice{\(2+2=5\)}
+\choice[correct]{\(3^2=9\)}
+\end{selectAll}
+\end{problem}
+
+\begin{problem}
+The two answers below should be checked as one group.
+\begin{validator}[xronosPairValidator(runtimePairA,runtimePairB)]
+\[
+a=\answer[id=runtimePairA,format=integer]{4},
+\qquad
+b=\answer[id=runtimePairB,format=integer]{6}
+\]
+\end{validator}
+\end{problem}
+
+\begin{problem}
+Submit correctly, reload, and confirm completed-answer rendering does not
+regress initial answer readiness.
+\[
+y=\answer[id=runtimeReloadAnswer]{7}
+\]
+\end{problem}
+\end{document}

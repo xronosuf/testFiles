@@ -1,0 +1,58 @@
+\documentclass{ximera}
+\title{Runtime Test 06: Optional Interactives and Local Failure}
+\begin{document}
+\begin{abstract}
+Tests a lightweight optional browser interactive and confirms optional failures
+remain local rather than blocking page readiness.
+\end{abstract}
+\maketitle
+
+\section{Optional Interactives}
+
+\subsection{Contained Inline JavaScript Failure}
+
+Malformed inline JavaScript:
+\js{
+  window.runtimeInlineMissingFunction()
+}.
+
+\begin{javascript}
+function installRuntimeOptionalInteractive() {
+  var host = document.getElementById("runtime-optional-interactive");
+  if (!host || host.getAttribute("data-installed")=="true")
+    return;
+
+  host.setAttribute("data-installed","true");
+
+  var button = document.createElement("button");
+  button.type = "button";
+  button.className = "btn btn-primary";
+  button.textContent = "Increment optional counter";
+
+  var output = document.createElement("span");
+  output.style.marginLeft = "1em";
+  output.textContent = "0";
+
+  var count = 0;
+  button.addEventListener("click",function() {
+    count += 1;
+    output.textContent = String(count);
+  });
+
+  host.textContent = "";
+  host.appendChild(button);
+  host.appendChild(output);
+}
+
+setTimeout(installRuntimeOptionalInteractive,0);
+\end{javascript}
+
+\htmlOnly{%
+  \HCode{<div id="runtime-optional-interactive">}%
+  Optional interactive has not initialized.
+  \HCode{</div>}%
+}
+
+Temporarily throw an exception in the installer and confirm ordinary content
+and page readiness remain available.
+\end{document}

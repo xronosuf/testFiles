@@ -1,0 +1,37 @@
+\documentclass{ximera}
+\title{Runtime Test 03: Basic Sage}
+\begin{document}
+\begin{abstract}
+Tests canonical Sage initialization, inline Sage requests, placeholders,
+successful result rendering, and MathJax display completion.
+\end{abstract}
+\maketitle
+
+\section{Basic Sage}
+
+
+\begin{sagesilent}
+x = var('x')
+expanded_expression = expand((x+1)^4)
+factored_expression = factor(x^2-1)
+matrix_value = matrix([[1,2],[3,4]])
+\end{sagesilent}
+
+\[
+2^{10}=\sage{2^10}.
+\]
+
+\[
+(x+1)^4=\sage{expanded_expression}.
+\]
+
+\[
+x^2-1=\sage{factored_expression}.
+\]
+
+\[
+A=\sage{matrix_value}.
+\]
+
+Every initial Sage placeholder should reach a visible terminal display state.
+\end{document}

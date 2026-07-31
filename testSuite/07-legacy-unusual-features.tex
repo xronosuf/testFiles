@@ -1,0 +1,53 @@
+\documentclass{ximera}
+\title{Runtime Test 07: Legacy and Unusual Features}
+\begin{document}
+\begin{abstract}
+Exercises hints, nested problems, feedback, deferred visibility, and answer DOM
+replacement behavior.
+\end{abstract}
+\maketitle
+
+\section{Legacy Unusual Features}
+
+
+\begin{problem}
+A basic problem with a hint.
+\[
+3+4=\answer[id=legacyHintAnswer]{7}
+\]
+\begin{hint}
+The answer is one more than \(6\).
+\end{hint}
+\end{problem}
+
+\begin{problem}
+A problem with feedback.
+\[
+2^3=\answer[id=legacyFeedbackAnswer]{8}
+\]
+\begin{feedback}
+Recall that \(2^3=2\cdot2\cdot2\).
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+A parent problem containing a nested problem.
+\[ 5+1 = \answer{6} \]
+\begin{problem}
+\[
+10-3=\answer[id=legacyNestedAnswer]{7}
+\]
+\end{problem}
+
+\end{problem}
+
+\begin{problem}
+A later-visible hint containing an answer box.
+\begin{hint}
+\[
+1+1=\answer[id=legacyHintContainedAnswer]{2}
+\]
+Use this to classify initial versus deferred answer readiness.
+\end{hint}
+\end{problem}
+\end{document}

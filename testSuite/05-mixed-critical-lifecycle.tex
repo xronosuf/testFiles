@@ -1,0 +1,63 @@
+\documentclass{ximera}
+\title{Runtime Test 05: Mixed Critical Lifecycle}
+\begin{document}
+\begin{abstract}
+Combines saved state, author JavaScript, \(\backslash js\), Sage, answer boxes,
+and later MathJax reevaluation.
+\end{abstract}
+\maketitle
+
+\section{Mixed Critical Lifecycle}
+
+
+\begin{javascript}
+window.runtimePlainSetupRuns =
+  (window.runtimePlainSetupRuns || 0) + 1;
+
+window.runtimeInputValue =
+  window.runtimeInputValue || 0;
+
+function runtimeDerivedValue() {
+  return 2*window.runtimeInputValue+1;
+}
+
+window.runtimeSeededSetupRuns =
+  (window.runtimeSeededSetupRuns || 0) + 1;
+
+window.runtimeSeededValue =
+  Math.floor(Math.random()*1000);
+\end{javascript}
+
+\begin{sagesilent}
+sage_value = 6*7
+\end{sagesilent}
+
+Plain setup executions:
+\[
+\js{window.runtimePlainSetupRuns}
+\]
+
+Seeded setup executions:
+\[
+\js{window.runtimeSeededSetupRuns}
+\]
+
+Seeded JavaScript value:
+\[
+\js{window.runtimeSeededValue}
+\]
+
+\[
+6\cdot7=\sage{sage_value}.
+\]
+
+Enter \(5\).
+\[
+x=\answer[id=runtimeInputValue]{5}
+\]
+
+The derived value should update after the answer changes:
+\[
+2x+1=\js{runtimeDerivedValue()}.
+\]
+\end{document}

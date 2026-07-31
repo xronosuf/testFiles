@@ -1,0 +1,41 @@
+\documentclass{ximera}
+\title{Runtime Test 01: Static Content and Core MathJax}
+\begin{document}
+\begin{abstract}
+Tests static startup, initial MathJax processing, references, wide display math,
+and a page with no Sage or answer-box requirements.
+\end{abstract}
+\maketitle
+
+\section{Static Mathjax Tests}
+
+Inline mathematics: \(e^{i\pi}+1=0\), \(\sqrt{x^2}=|x|\), and
+\(\displaystyle \sum_{k=1}^{n} k=\frac{n(n+1)}{2}\).
+
+\[
+\int_0^1 x^2\,dx=\frac13.
+\]
+
+\begin{align*}
+(x+y)^2&=x^2+2xy+y^2,\\
+(x-y)^2&=x^2-2xy+y^2.
+\end{align*}
+
+\[
+A=\begin{pmatrix}1&2\\3&4\end{pmatrix},
+\qquad
+f(x)=\begin{cases}x^2,&x\ge0,\\-x,&x<0.\end{cases}
+\]
+
+The following display is intentionally wide:
+\[
+\prod_{j=1}^{12}
+\left(1+\frac{x_j^2+y_j^2+z_j^2}{1+a_j^2+b_j^2+c_j^2}\right)
+=
+\frac{\displaystyle\prod_{j=1}^{12}(1+x_j^2+y_j^2+z_j^2)}
+{\displaystyle\prod_{j=1}^{12}(1+a_j^2+b_j^2+c_j^2)}.
+\]
+
+Expected: MathJax settled, inline Sage not required, math answers not required,
+and page readiness ready.
+\end{document}
