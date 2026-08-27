@@ -1,0 +1,35 @@
+\documentclass{ximera}
+\title{Runtime Test 09: Choice-Family Isolation}
+\begin{document}
+\begin{abstract}
+Isolates multiple-choice and select-all behavior so selection, correctness,
+completion, and saved-state restoration can be tested without unrelated answer types.
+\end{abstract}
+\maketitle
+
+\section{Multiple Choice}
+
+\begin{problem}
+Choose the unique true statement.
+\begin{multipleChoice}
+\choice{Every integer is positive.}
+\choice[correct]{The integer \(0\) is neither positive nor negative.}
+\choice{Every even integer is divisible by \(4\).}
+\end{multipleChoice}
+\end{problem}
+
+\section{Select All}
+
+\begin{problem}
+Select every true statement.
+\begin{selectAll}
+\choice[correct]{\(2\) is even.}
+\choice{\(3\) is even.}
+\choice[correct]{\(5\) is prime.}
+\choice{\(9\) is prime.}
+\end{selectAll}
+\end{problem}
+
+Reload after interacting with each problem and confirm that saved selections and
+completed state restore correctly.
+\end{document}
