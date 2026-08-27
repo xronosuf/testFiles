@@ -1,0 +1,41 @@
+\documentclass{ximera}
+\usepackage{ximera-answer}
+
+\title{Runtime Test 15: Answer Delimiter Matrix}
+\begin{document}
+\begin{abstract}
+Diagnostic control for the modern answer component. The same answer macro is
+placed in each common TeX math-delimiter form so the generated HTML can reveal
+whether answer extraction depends on how math mode is authored.
+\end{abstract}
+\maketitle
+
+\section{Math Delimiter Forms}
+
+\begin{problem}
+Inline dollar delimiters:
+$x=\answer[id=delimiterInlineDollar]{1}$
+\end{problem}
+
+\begin{problem}
+Display dollar delimiters:
+$$
+x=\answer[id=delimiterDisplayDollar]{2}
+$$
+\end{problem}
+
+\begin{problem}
+Inline parenthesis delimiters:
+\(
+x=\answer[id=delimiterInlineParen]{3}
+\)
+\end{problem}
+
+\begin{problem}
+Display bracket delimiters:
+\[
+x=\answer[id=delimiterDisplayBracket]{4}
+\]
+\end{problem}
+
+\end{document}
