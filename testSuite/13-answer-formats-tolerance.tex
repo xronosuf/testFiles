@@ -1,0 +1,60 @@
+\documentclass{ximera}
+\title{Runtime Test 13: Answer Formats and Tolerance}
+\begin{document}
+\begin{abstract}
+Tests integer, float, string, expression, and tolerance handling as isolated
+answer-format behaviors.
+\end{abstract}
+\maketitle
+
+\section{Integer Format}
+
+\begin{problem}
+Enter the integer \(17\).
+\[
+\answer[id=formatInteger,format=integer]{17}
+\]
+A decimal such as \(17.5\) should not be accepted as the integer \(17\).
+\end{problem}
+
+\section{Float Format}
+
+\begin{problem}
+Enter \(2.5\).
+\[
+\answer[id=formatFloat,format=float]{2.5}
+\]
+\end{problem}
+
+\section{String Format}
+
+\begin{problem}
+Enter the word \(\text{alpha}\).
+\[
+\answer[id=formatString,format=string]{alpha}
+\]
+String comparison should follow the runtime's documented case-handling rules.
+\end{problem}
+
+\section{Expression Format}
+
+\begin{problem}
+Enter an expression equivalent to \(2(x+1)\).
+\[
+\answer[id=formatExpression]{2(x+1)}
+\]
+An algebraically equivalent response such as \(2x+2\) should be accepted.
+\end{problem}
+
+\section{Tolerance}
+
+\begin{problem}
+Enter a decimal approximation to \(\frac{1}{3}\) within tolerance \(0.01\).
+\[
+\answer[id=formatTolerance,format=float,tolerance=0.01]{0.3333333333}
+\]
+\end{problem}
+
+Reload after correct and incorrect attempts and confirm response/correctness state
+restores consistently.
+\end{document}
