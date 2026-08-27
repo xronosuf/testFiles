@@ -1,0 +1,31 @@
+\documentclass{ximera}
+\title{Runtime Test 12: Free Response}
+\begin{document}
+\begin{abstract}
+Tests free-response submission, completion semantics, editability after submit,
+and saved-state restoration independently of automatically graded answers.
+\end{abstract}
+\maketitle
+
+\section{Ungraded Free Response}
+
+\begin{problem}
+In one or two sentences, describe a reason that \(2\) is an even integer.
+
+\begin{freeResponse}
+A valid response should be accepted as submitted without being treated as an
+automatically graded correct/incorrect answer.
+\end{freeResponse}
+\end{problem}
+
+After submitting, verify that the response remains editable if that is the
+current intended behavior. Reload the page and verify that the submitted text
+and completion state restore.
+
+\section{Given Free Response}
+
+\begin{freeResponse}[true]
+This is author-provided free-response content using the optional given form.
+\end{freeResponse}
+
+\end{document}
