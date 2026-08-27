@@ -1,0 +1,48 @@
+\documentclass{ximera}
+\title{Runtime Test 10: Hints and Foldables}
+\begin{document}
+\begin{abstract}
+Tests isolated reveal/collapse behavior and saved-state restoration for hints,
+foldables, accordions, and expandable content.
+\end{abstract}
+\maketitle
+
+\section{Hint Persistence}
+
+\begin{problem}
+Compute \(2+3\).
+\begin{hint}
+Add the two integers directly.
+\end{hint}
+\[
+\answer[id=hintFoldAnswer]{5}
+\]
+\end{problem}
+
+Reveal the hint, reload the page, and confirm that its revealed state restores.
+
+\section{Foldable Persistence}
+
+\begin{foldable}
+This content should be collapsible. Toggle it, reload, and verify that the
+collapsed/expanded state restores consistently.
+\end{foldable}
+
+\section{Accordion}
+
+\begin{accordion}
+\begin{accordion-item}[First panel]
+This is the first accordion item.
+\end{accordion-item}
+\begin{accordion-item}[Second panel]
+This is the second accordion item.
+\end{accordion-item}
+\end{accordion}
+
+\section{Expandable}
+
+\begin{expandable}{runtime-expandable}{Expandable test}
+This is explicitly expandable content.
+\end{expandable}
+
+\end{document}
