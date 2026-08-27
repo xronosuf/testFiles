@@ -1,0 +1,50 @@
+\documentclass{ximera}
+\title{Runtime Test 11: Nested Problem Gating}
+\begin{document}
+\begin{abstract}
+Tests nested problem availability, completion propagation, and the distinction
+between wrapper problems and directly answerable problems.
+\end{abstract}
+\maketitle
+
+\section{Blocking Sequence}
+
+\begin{problem}
+First complete this answer.
+\[
+\answer[id=nestedGateFirst]{3}
+\]
+
+\begin{problem}
+This nested problem should become available according to the runtime's gating
+rules after the prerequisite above is complete.
+\[
+\answer[id=nestedGateSecond]{4}
+\]
+\end{problem}
+\end{problem}
+
+\section{Wrapper Problem}
+
+\begin{problem}
+This outer problem contains no direct answerable and should act only as a
+structural wrapper.
+
+\begin{problem}
+First child answer:
+\[
+\answer[id=wrapperChildOne]{7}
+\]
+\end{problem}
+
+\begin{problem}
+Second child answer:
+\[
+\answer[id=wrapperChildTwo]{8}
+\]
+\end{problem}
+\end{problem}
+
+Reload at each stage and confirm that availability and completion state remain
+consistent with the state before reload.
+\end{document}
