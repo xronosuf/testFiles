@@ -1,0 +1,58 @@
+\documentclass{ximera}
+\usepackage{ximera-answer}
+\usepackage{ximera-choice}
+\usepackage{ximera-multiple-choice}
+\usepackage{ximera-select-all}
+
+\title{Runtime Test 14: Modern Component Activation}
+\begin{document}
+\begin{abstract}
+Control test for the Phase-5 component authoring contract. This page explicitly
+loads the split-out Ximera component packages and mirrors the essential answer
+and choice behavior exercised by the legacy-style Test 02.
+\end{abstract}
+\maketitle
+
+\section{Explicit Component Packages}
+
+\begin{problem}
+Enter \(5\).
+\[
+\answer[id=modernRuntimeInteger]{5}
+\]
+\end{problem}
+
+\begin{problem}
+Enter \(2-x\).
+\[
+\answer[id=modernRuntimeExpression]{2-x}
+\]
+\end{problem}
+
+\begin{problem}
+Choose the correct statement.
+\begin{multipleChoice}
+\choice{Every prime number is odd.}
+\choice[correct]{The number \(2\) is prime.}
+\choice{The number \(1\) is prime.}
+\end{multipleChoice}
+\end{problem}
+
+\begin{problem}
+Select every true statement.
+\begin{selectAll}
+\choice[correct]{\(2+2=4\)}
+\choice{\(2+2=5\)}
+\choice[correct]{\(3^2=9\)}
+\end{selectAll}
+\end{problem}
+
+\begin{problem}
+Submit correctly, reload, and observe whether the modern component path restores
+or otherwise preserves the completed answer state.
+\[
+y=\answer[id=modernRuntimeReloadAnswer]{7}
+\]
+\end{problem}
+
+\end{document}
