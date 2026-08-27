@@ -1,0 +1,29 @@
+{
+  "name": "xronos-runtime-compatibility-tests",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cross-runtime Ximera/Xronos compatibility corpus for the legacy Xronos server and the tex4npm component architecture.",
+  "scripts": {
+    "build": "tex4npm build",
+    "watch": "tex4npm watch",
+    "clean": "tex4npm clean"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@ximera/answer": "^2.0.0",
+    "@ximera/choice": "^2.0.0",
+    "@ximera/chrome": "^2.0.0",
+    "@ximera/core": "^2.0.0",
+    "@ximera/foldable": "^2.0.0",
+    "@ximera/free-response": "^2.0.0",
+    "@ximera/hint": "^2.0.0",
+    "@ximera/multiple-choice": "^2.0.0",
+    "@ximera/select-all": "^2.0.0"
+  },
+  "devDependencies": {
+    "tex4npm": "^2.0.0"
+  }
+}
