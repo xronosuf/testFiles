@@ -127,6 +127,7 @@ dist/
 ## tex4ht side-products emitted beside source files by tex4npm
 *.auxlock
 *.idv
+*.ids
 *.lg
 /test-suite-xourse.html
 /testSuite/*.html
