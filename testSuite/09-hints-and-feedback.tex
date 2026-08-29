@@ -1,0 +1,123 @@
+\documentclass{ximera}
+\title{Runtime Test 09: Hint and Feedback Lifecycle}
+\begin{document}
+\begin{abstract}
+Tests hidden hint and feedback content, including mathematics, answers, and
+inline JavaScript, without blocking initial page readiness.
+\end{abstract}
+\maketitle
+
+\section{Native Hint Lifecycle}
+
+\begin{problem}
+
+Enter the value \(5\).
+
+\[
+x=\answer[id=runtimeHintAnswer,format=integer]{5}
+\]
+
+\begin{hint}
+First hint:
+
+\[
+2+3=5.
+\]
+
+Inline JavaScript value:
+\js{
+  typeof window.runtimeHintAnswer === "number"
+    ? window.runtimeHintAnswer
+    : 0
+}.
+\end{hint}
+
+\begin{hint}
+Second hint:
+
+\[
+5+5=10.
+\]
+\end{hint}
+
+\begin{hint}
+Third hint:
+
+\[
+10+5=15.
+\]
+\end{hint}
+
+\begin{feedback}[attempt]
+Attempt feedback contains mathematics:
+\[
+10-5=5.
+\]
+\end{feedback}
+
+\begin{feedback}[correct]
+Correct feedback contains mathematics:
+\[
+5^2=25.
+\]
+\end{feedback}
+
+\end{problem}
+
+\section{Optional Interactive}
+
+\begin{javascript}
+function installRuntimeOptionalInteractive() {
+  var host = document.getElementById(
+    "runtime-optional-interactive"
+  );
+
+  if (
+    !host ||
+    host.getAttribute("data-installed") === "true"
+  ) {
+    return;
+  }
+
+  host.setAttribute(
+    "data-installed",
+    "true"
+  );
+
+  var button = document.createElement("button");
+  button.type = "button";
+  button.className = "btn btn-primary";
+  button.textContent = "Increment optional counter";
+
+  var output = document.createElement("span");
+  output.style.marginLeft = "1em";
+  output.textContent = "0";
+
+  var count = 0;
+
+  button.addEventListener(
+    "click",
+    function() {
+      count += 1;
+      output.textContent = String(count);
+    }
+  );
+
+  host.textContent = "";
+  host.appendChild(button);
+  host.appendChild(output);
+}
+
+setTimeout(
+  installRuntimeOptionalInteractive,
+  0
+);
+\end{javascript}
+
+\htmlOnly{%
+  \HCode{<div id="runtime-optional-interactive">}%
+  Optional interactive has not initialized.
+  \HCode{</div>}%
+}
+
+\end{document}

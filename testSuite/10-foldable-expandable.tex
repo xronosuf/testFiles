@@ -1,0 +1,50 @@
+\documentclass{ximera}
+
+\title{Runtime Test 10: Foldable and Expandable}
+
+\begin{document}
+\begin{abstract}
+Tests foldable and expandable runtime behavior.
+\end{abstract}
+\maketitle
+
+\section{Foldable}
+
+This block should begin open and be collapsible.
+
+\begin{foldable}
+Foldable marker: FOLDABLE-CONTENT
+
+\[
+2+4=6.
+\]
+
+Inline JavaScript:
+\js{typeof window.runtimeFoldableValue === "number" ? window.runtimeFoldableValue : 0}.
+\end{foldable}
+
+\section{Expandable}
+
+The following content should begin closed.
+
+\begin{expandable}{runtimeExpandable}{Expand this content}
+Expandable marker: EXPANDABLE-CONTENT
+
+\[
+3+4=7.
+\]
+
+Inline JavaScript:
+\js{
+  typeof window.runtimeExpandableValue === "number"
+    ? window.runtimeExpandableValue
+    : 0
+}.
+\end{expandable}
+
+\begin{javascript}
+window.runtimeFoldableValue = 11;
+window.runtimeExpandableValue = 22;
+\end{javascript}
+
+\end{document}

@@ -1,0 +1,59 @@
+\documentclass{ximera}
+
+\title{Runtime Test 11: Nested Problems}
+
+\begin{document}
+\begin{abstract}
+Tests nested problem visibility, initialization, unlocking, persistence,
+and progress accounting.
+\end{abstract}
+\maketitle
+
+\begin{problem}
+Parent marker: PARENT-PROBLEM
+
+Enter \(2\).
+
+\[
+a=\answer[id=runtimeNestedParent,format=integer]{2}
+\]
+
+\begin{problem}
+Child marker: CHILD-PROBLEM
+
+The child contains initialized hidden mathematics:
+
+\[
+3+4=7.
+\]
+
+Inline JavaScript:
+\js{
+  typeof window.runtimeNestedParent === "number"
+    ? window.runtimeNestedParent
+    : 0
+}.
+
+Enter \(3\).
+
+\[
+b=\answer[id=runtimeNestedChild,format=integer]{3}
+\]
+
+\begin{problem}
+Grandchild marker: GRANDCHILD-PROBLEM
+
+Enter \(4\).
+
+\[
+c=\answer[id=runtimeNestedGrandchild,format=integer]{4}
+\]
+\end{problem}
+
+\end{problem}
+
+Text after the nested problem: AFTER-NESTED-MARKER.
+
+\end{problem}
+
+\end{document}
