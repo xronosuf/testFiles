@@ -1,0 +1,56 @@
+\documentclass{ximera}
+\title{Runtime Test 13: Sage String Answers}
+\begin{document}
+\begin{abstract}
+Regression coverage for Sage-generated string values used as canonical answers,
+including both ordinary expression answers and explicit string-format answers.
+\end{abstract}
+\maketitle
+
+\begin{sagesilent}
+sage_text_answer = "DNE"
+sage_second_text_answer = "NONE"
+sage_numeric_answer = 3/4
+\end{sagesilent}
+
+\section{Sage string answer normalization}
+
+The following two boxes use the same Sage string.  In both cases the student
+should be able to enter \texttt{DNE}; the generated display LaTeX
+\verb|\text{\texttt{DNE}}| must not become the canonical answer value.
+
+\begin{problem}
+Ordinary answer format:
+\[
+\answer{\sage{sage_text_answer}}
+\]
+Typing \texttt{DNE} should be accepted.
+\end{problem}
+
+\begin{problem}
+Explicit string answer format:
+\[
+\answer[format=string]{\sage{sage_text_answer}}
+\]
+Typing \texttt{DNE} should be accepted.  The student should not need to type
+any TeX wrapper.
+\end{problem}
+
+\begin{problem}
+Second arbitrary string value:
+\[
+\answer[format=string]{\sage{sage_second_text_answer}}
+\]
+Typing \texttt{NONE} should be accepted.  This guards against a fix that is
+special-cased to the literal value \texttt{DNE}.
+\end{problem}
+
+\begin{problem}
+Numeric Sage control:
+\[
+\answer{\sage{sage_numeric_answer}}
+\]
+Typing \texttt{3/4} should still be accepted.
+\end{problem}
+
+\end{document}
